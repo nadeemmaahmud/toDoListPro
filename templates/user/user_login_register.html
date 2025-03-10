@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{%load crispy_forms_tags %}
+
+{% block title %}{% if create %}Register{% else %}Login{% endif %}{% endblock %}
+
+{% block content %}
+    <h2>{% if create %}Register User{% else %}Login User{% endif %}</h2>
+    <hr>
+
+    <form method="post">
+        {% csrf_token %}
+        {{ form|crispy }}
+        <button type="submit" class="btn btn-primary">{% if create %}Register{% else %}Login{% endif %}</button>
+        <a href="{% url 'reset_password_request' %}" class="text-decoration-none">Forget password?</a>
+    </form>
+{% endblock %}

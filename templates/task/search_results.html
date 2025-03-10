@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+
+{% block title %}Search{% endblock %}
+
+{% block content %}
+  <div class="d-flex justify-content-between align-items-center">
+    <h2>Searched Results</h2>
+    <a class="btn btn-primary" href="{% url 'create' %}">Create</a>
+  </div>
+  <hr>
+
+  {% if tasks %}
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Title</th>
+          <th scope="col">Category</th>
+          <th scope="col">Created At</th>
+          <th scope="col">Deadline</th>
+          <th scope="col">Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for task in tasks %}
+          <tr>
+            <th scope="row">{{ forloop.counter }}</th>
+            <td>{{ task.title }}</td>
+            <td>{{ task.category }}</td>
+            <td>{{ task.created_at }}</td>
+            <td>{{ task.deadline }}</td>
+            <td>
+              {% if task.is_complete %}
+                <p>Completed</p>
+              {% else %}
+                <div class="btn-group" role="group" aria-label="Basic mixed styles example">
+                  <a href="{% url 'edit' task.id %}" class="btn btn-warning"><i class="bi bi-pencil-square"></i></a>
+                  <a href="{% url 'delete' task.id %}" class="btn btn-danger"><i class="bi bi-trash-fill"></i></a>
+                  <a href="{% url 'complete' task.id %}" class="btn btn-success"><i class="bi bi-check-all"></i></a>
+                </div>
+              {% endif %}
+            </td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  {% else %}
+    <h2>No result found!</h2>
+  {% endif %}
+{% endblock %}

@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block title %}Completed{% endblock %}
+
+{% block content %}
+  <div class="d-flex justify-content-between align-items-center">
+    <h2>Completed Tasks</h2>
+    <a class="btn btn-primary" href="{% url 'create' %}">Create</a>
+  </div>
+  <hr>
+
+  {% if tasks %}
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Title</th>
+          <th scope="col">Category</th>
+          <th scope="col">Created At</th>
+          <th scope="col">Deadline</th>
+          <th scope="col">Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for task in tasks %}
+          <tr>
+            <th scope="row">{{ forloop.counter }}</th>
+            <td>{{ task.title }}</td>
+            <td>{{ task.category }}</td>
+            <td>{{ task.created_at }}</td>
+            <td>{{ task.deadline }}</td>
+            <td>
+              <p>Completed</p>
+            </td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  {% else %}
+    <h2>No task is completed! Let's do one!</h2>
+  {% endif %}
+{% endblock %}

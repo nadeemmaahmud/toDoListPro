@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{%load crispy_forms_tags %}
+
+{% block title %}{% if create %}Create{% else %}Edit{% endif %}{% endblock %}
+
+{% block content %}
+  <h2>{% if create %}Create Task{% else %}Edit Task{% endif %}</h2>
+  <hr>
+
+  <form method="post">
+    {% csrf_token %}
+    {{ form|crispy }}
+    <button class="btn btn-primary" type="submit">{% if create %}Create{% else %}Edit{% endif %}</button>
+    <a href="{% url 'all_category' %}" class="text-decoration-none">Category options!</a>
+  </form>
+{% endblock %}

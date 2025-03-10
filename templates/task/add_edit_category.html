@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{%load crispy_forms_tags %}
+
+{% block title %}Categories{% endblock %}
+
+{% block content %}
+  <h2>Category Option</h2>
+  <hr>
+
+  <form method="post">
+    {% csrf_token %}
+    {{ form|crispy }}
+    <button class="btn btn-primary" type="submit">Update</button>
+    <a href="{% url 'all_category' %}" class="text-decoration-none">Back to categories</a>
+  </form>
+{% endblock %}

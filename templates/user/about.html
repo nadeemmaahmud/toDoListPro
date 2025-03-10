@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{%load crispy_forms_tags %}
+
+{% block title %}About{% endblock %}
+
+{% block content %}
+    <h2>About ToDo</h2>
+    <hr>
+
+    <h3>Developer Info</h3>
+    <p>Created By : <b><i>Nadim Mahmud</i></b></p>
+
+    <h3>Usage</h3>
+    <ol>
+      <li>Login/Register your account.</li>
+      <li>Verify your mail after registration.</li>
+      <li>Login to your account with your credentials.</li>
+      <li>Create/Edit/Delete/Read your task.</li>
+      <li>Mark as complete if it's done.</li>
+      <li>Change password if you're already logged in and need to do it.</li>
+      <li>If you forget password, just reset it after a simple mail verification.</li>
+      <li>Contact me if you've to say something (Including profile deletion).</li>
+    </ol>
+
+{% endblock %}
