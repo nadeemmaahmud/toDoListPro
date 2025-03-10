@@ -93,7 +93,7 @@ def add_category(request):
     else:
         form = CategoryCreateEditForm()
 
-    return render(request, 'task/add_edit_category.html', {'form': form})
+    return render(request, 'task/add_edit_category.html', {'form': form, 'add': True})
 
 @login_required
 def edit_category(request, pk):
