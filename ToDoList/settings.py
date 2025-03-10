@@ -30,8 +30,8 @@ DEBUG = False
 ALLOWED_HOSTS = ['*']
 
 CSRF_TRUSTED_ORIGINS = [
-    "https://nadeem-todolistpro.up.railway.app/",
-    "http://127.0.0.1:8000",
+    "https://nadeem-todolistpro.up.railway.app/*",
+    "http://127.0.0.1:8000/*",
 ]
 
 
